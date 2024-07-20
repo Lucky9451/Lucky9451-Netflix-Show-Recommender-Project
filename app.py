@@ -1,8 +1,8 @@
 import streamlit as st
 import pickle
 
-netflix = pickle.load(open('Deployed Model\netflix.pkl', 'rb'))
-similarity = pickle.load(open('Deployed Model\similarity.pkl', 'rb'))
+netflix = pickle.load(open('Deployed Model/netflix.pkl', 'rb'))
+similarity = pickle.load(open('Deployed Model/similarity.pkl', 'rb'))
 shows = netflix['title'].values
 st.title('Netflix Show Recommender by Lucky')
 selected_show = st.selectbox('Please Select Show for which you want recommendations', shows)
