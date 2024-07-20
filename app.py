@@ -1,12 +1,24 @@
-import streamlit as st
+from flask import Flask, render_template, request
 import pickle
 
+app = Flask(__name__)
+
+# Load the model and similarity data
 netflix = pickle.load(open('Deployed Model/netflix.pkl', 'rb'))
 similarity = pickle.load(open('Deployed Model/similarity.pkl', 'rb'))
-shows = netflix['title'].values
-st.title('Netflix Show Recommender by Lucky')
-selected_show = st.selectbox('Please Select Show for which you want recommendations', shows)
 
+# Get the list of shows
+shows = netflix['title'].values
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    recommended_shows = []
+    if request.method == 'POST':
+        selected_show = request.form.get('show')
+        if selected_show:
+            recommendations = recommend(selected_show)
+            recommended_shows = recommendations
+    return render_template('index.html', shows=shows, recommendations=recommended_shows)
 
 def recommend(movie):
     movie_index = netflix[netflix['title'] == movie].index[0]
@@ -17,8 +29,5 @@ def recommend(movie):
         recommended_shows.append(netflix.iloc[i[0]].title)
     return recommended_shows
 
-
-if st.button('Recommend'):
-    recommendations = recommend(selected_show)
-    for i in recommendations:
-        st.write(i)
+if __name__ == '__main__':
+    app.run(debug=True)
