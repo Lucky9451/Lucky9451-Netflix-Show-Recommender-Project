@@ -1,5 +1,2 @@
 # Ignore virtual environment directory
 myenv/
-
-# Ignore specific file in Deployed Model directory
-Deployed Model/similarity.pkl
