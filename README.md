@@ -88,7 +88,7 @@ pip install -r requirements.txt
     *The main interface where users can select a show and get recommendations.*
 
 2. **Recommendations**:
-    ![Recommendation](Screenshots/recommendations.png)
+    ![Recommendation](Screenshots/recommendation.PNG)
     *Displays the list of recommended shows based on user input.*
 ## Deployment
 
