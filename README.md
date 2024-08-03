@@ -172,7 +172,7 @@ A live demo of the application is available at: [Neflix-Show-Recommender](https:
 
 ## Documentation
 
-See the [Documentation](https://drive.google.com/file/d/1vyeodnpzcMEisArf6NIEbN27_IWG1_7V/view?usp=sharing).
+See the [Documentation]().
 
 
 ## Authors
